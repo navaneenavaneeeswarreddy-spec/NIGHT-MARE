@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://10.10.22.107:3000/ -->
+<html lang="en" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#D32F2F">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>NSS Blood Connect Mobile - Emergency Blood Platform</title>
+  <meta name="description" content="Digital Mobile Platform for Blood Donor Discovery, Requests, Matching, and Emergency Coordination.">
+  <link rel="manifest" href="http://10.10.22.107:3000/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./NSS Blood Connect Mobile - Emergency Blood Platform_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="./NSS Blood Connect Mobile - Emergency Blood Platform_files/main.css">
+</head>
+<body>
+  <div id="app">
+    <div style="background: #1E293B; color: white; padding: 0.4rem 1rem; text-align: center; font-size: 0.8rem; display: flex; justify-content: center; align-items: center; gap: 1rem;">
+      <span>📱 <strong>NSS Blood Connect Mobile App Engine:</strong> Ready for Mobile Devices &amp; Desktops</span>
+      <button class="btn btn-secondary btn-sm" id="toggle-phone-mockup-btn" style="padding: 0.15rem 0.6rem; font-size: 0.75rem;">💻 Toggle Full Desktop View</button>
+    </div>
+    <div id="app-wrapper" class="phone-mockup-wrapper">
+      <header id="navbar-container">
+    
+      <div class="emergency-banner">
+        <span>🚨 EMERGENCY ALERT: 18 Urgent Blood Requests Active!</span>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary btn-sm" id="banner-test-siren-btn">🚨 Test Siren Sound</button>
+          <button class="btn btn-emergency btn-sm" id="nav-emergency-btn">View Urgent Requests</button>
+        </div>
+      </div>
+    
+
+    <nav class="navbar glass-panel">
+      <div class="nav-brand">
+        <span class="blood-type-pill" style="width:36px; height:36px; font-size:0.9rem;">🩸</span>
+        <div>
+          <span>NSS BLOOD CONNECT</span>
+          <span class="brand-badge">NSS Platform</span>
+        </div>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a class="nav-link active" data-tab="dashboard">Dashboard</a></li>
+        <li><a class="nav-link " data-tab="donors">Donors Directory</a></li>
+        <li><a class="nav-link " data-tab="requests">Blood Requests</a></li>
+        <li><a class="nav-link " data-tab="matching">Search &amp; Matching</a></li>
+        <li><a class="nav-link " data-tab="tracking">Request Tracking</a></li>
+        <li><a class="nav-link " data-tab="hospital">Hospital Panel</a></li>
+        <li><a class="nav-link " data-tab="records">Records &amp; Stats</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="http://10.10.22.107:3000/NSS_Blood_Connect.apk" download="NSS_Blood_Connect.apk" class="btn btn-primary btn-sm" title="Download Android APK Installer" style="text-decoration:none;">
+          📥 Download APK
+        </a>
+        <button class="btn btn-secondary btn-sm" id="qr-modal-btn" title="Scan QR Code to open on Mobile Phone">
+          📲 Scan QR for Mobile
+        </button>
+        <button class="btn btn-secondary btn-sm" id="siren-mute-btn" title="Toggle Emergency Siren Audio">
+          🔇 Siren: MUTED
+        </button>
+        <button class="btn btn-secondary btn-sm" id="sim-toggle-btn" title="Toggle Real-Time Broadcast Simulation">
+          🟢 Live Broadcast
+        </button>
+        <button class="btn btn-emergency" id="nav-create-request-btn">+ Request Blood</button>
+        <button class="btn btn-secondary" id="nav-register-donor-btn">Register Donor</button>
+        <button class="theme-toggle" id="theme-toggle-btn" title="Toggle Light/Dark Theme">
+          🌙
+        </button>
+      </div>
+    </nav>
+    <div class="modal-overlay" id="qr-code-modal">
+      <div class="modal-card glass-panel" style="text-align: center; max-width: 420px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700;">📱 Open App on Mobile Phone</h3>
+          <button class="btn btn-secondary btn-sm" id="close-qr-modal">✕</button>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Scan this QR Code with your smartphone camera to load NSS Blood Connect on your mobile device!
+        </p>
+        <div style="background: white; padding: 1rem; border-radius: 16px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+          <img src="./NSS Blood Connect Mobile - Emergency Blood Platform_files/saved_resource" alt="Mobile App QR Code" style="width: 200px; height: 200px; display: block;">
+        </div>
+        <div style="margin-top: 1.25rem; font-size: 0.9rem; font-weight: bold; color: var(--primary-color); word-break: break-all;">
+          http://10.10.22.107:3000
+        </div>
+        <div style="margin-top: 1rem;">
+          <a href="http://10.10.22.107:3000/NSS_Blood_Connect.apk" download="NSS_Blood_Connect.apk" class="btn btn-primary" style="width: 100%; justify-content: center; text-decoration: none;">
+            📥 Direct Download Android APK File
+          </a>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem;">
+          (Make sure phone is connected to the same Wi-Fi network)
+        </div>
+      </div>
+    </div>
+    
+      <div style="max-width: 1320px; margin: 0.5rem auto 0 auto; padding: 0 1.5rem;">
+        <div style="background: rgba(30, 41, 59, 0.85); backdrop-filter: blur(10px); border: 1px solid var(--surface-border); padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.82rem; display: flex; align-items: center; justify-content: space-between;">
+          <span>❤️ Live Update: New NSS Donor Karan Sharma (O+) registered! <small style="color:var(--text-muted);">(11:50:17)</small></span>
+          <span style="font-size: 0.75rem; color: var(--accent-success); font-weight: bold;">LIVE REAL-TIME FEED</span>
+        </div>
+      </div>
+    
+  </header>
+      <main class="container" id="main-content">
+    <div class="dashboard-view" style="display: flex; flex-direction: column; gap: 2rem;">
+      <!-- KPI Controls Notice -->
+      <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(30, 41, 59, 0.4); padding: 0.75rem 1.25rem; border-radius: 12px; border: 1px dashed var(--surface-border);">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">⚡ <strong>Live Metric Controls:</strong> Click <strong style="color:var(--primary-color);">[-]</strong> or <strong style="color:#66BB6A;">[+]</strong> on any KPI card below to instantly modify dashboard active numbers.</span>
+        <button class="btn btn-secondary btn-sm" id="reset-kpis-btn" style="font-size: 0.75rem;">Reset Calculated Values</button>
+      </div>
+
+      <!-- KPI Stats Section -->
+      <div class="grid-4">
+        <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">ACTIVE REQUESTS</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.25rem;">
+              <span style="font-size: 2rem; font-weight: 800;">27</span>
+              <div style="display: flex; gap: 2px;">
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="activeRequestsCount" data-delta="-1" style="padding: 0.1rem 0.4rem; font-weight: bold;">-</button>
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="activeRequestsCount" data-delta="1" style="padding: 0.1rem 0.4rem; font-weight: bold;">+</button>
+              </div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--accent-info); margin-top: 0.25rem;">Total 27 logged</div>
+          </div>
+          <div class="blood-type-pill" style="background: rgba(30, 136, 229, 0.2); color: #42A5F5;">📋</div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; border-left: 4px solid var(--accent-emergency);">
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">EMERGENCY ALERTS</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.25rem;">
+              <span style="font-size: 2rem; font-weight: 800; color: #EF5350;">18</span>
+              <div style="display: flex; gap: 2px;">
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="emergencyCount" data-delta="-1" style="padding: 0.1rem 0.4rem; font-weight: bold;">-</button>
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="emergencyCount" data-delta="1" style="padding: 0.1rem 0.4rem; font-weight: bold;">+</button>
+              </div>
+            </div>
+            <div style="font-size: 0.75rem; color: #EF5350; margin-top: 0.25rem;">Immediate response needed</div>
+          </div>
+          <div class="blood-type-pill" style="background: rgba(229, 57, 53, 0.2); color: #EF5350;">🚨</div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">REGISTERED DONORS</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.25rem;">
+              <span style="font-size: 2rem; font-weight: 800;">29</span>
+              <div style="display: flex; gap: 2px;">
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="totalDonors" data-delta="-1" style="padding: 0.1rem 0.4rem; font-weight: bold;">-</button>
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="totalDonors" data-delta="1" style="padding: 0.1rem 0.4rem; font-weight: bold;">+</button>
+              </div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--accent-success); margin-top: 0.25rem;">Verified NSS Volunteer Base</div>
+          </div>
+          <div class="blood-type-pill" style="background: rgba(67, 160, 71, 0.2); color: #66BB6A;">🙋</div>
+        </div>
+
+        <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">AVAILABLE NOW</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.25rem;">
+              <span style="font-size: 2rem; font-weight: 800; color: #66BB6A;">28</span>
+              <div style="display: flex; gap: 2px;">
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="availableDonorsCount" data-delta="-1" style="padding: 0.1rem 0.4rem; font-weight: bold;">-</button>
+                <button class="btn btn-secondary btn-sm kpi-adj-btn" data-key="availableDonorsCount" data-delta="1" style="padding: 0.1rem 0.4rem; font-weight: bold;">+</button>
+              </div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Ready for donation</div>
+          </div>
+          <div class="blood-type-pill" style="background: rgba(67, 160, 71, 0.2); color: #66BB6A;">✅</div>
+        </div>
+      </div>
+
+      <!-- Quick Action Cards -->
+      <div class="glass-panel" style="padding: 1.5rem; background: linear-gradient(135deg, rgba(211, 47, 47, 0.15), rgba(15, 23, 42, 0.4)); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2 style="font-size: 1.25rem; font-weight: 700;">Need Emergency Blood or Want to Donate?</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">
+            Quickly post a hospital request or add your name to the registered NSS blood donor list.
+          </p>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <button class="btn btn-emergency" id="dash-emergency-req-btn">🚨 Emergency Blood Request</button>
+          <button class="btn btn-secondary" id="dash-register-donor-btn">❤️ Register as Donor</button>
+        </div>
+      </div>
+
+      <!-- Blood Group Overview Grid -->
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.15rem; font-weight: 700;">🩸 Blood Group Availability &amp; Requirements Overview</h2>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Real-time inventory mapping</span>
+        </div>
+
+        <div class="grid-4">
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">A+</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group A+</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    5 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>21 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">A-</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group A-</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    1 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>0 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">B+</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group B+</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    5 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>15 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">B-</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group B-</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-emergency">
+                    0 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>0 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">O+</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group O+</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    9 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>5 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">O-</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group O-</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    4 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>10 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">AB+</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group AB+</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    1 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>0 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+            <div class="glass-panel" style="padding: 1.25rem; display: flex; align-items: center; gap: 1rem;">
+              <div class="blood-type-pill">AB-</div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between;">
+                  <span>Group AB-</span>
+                  <span style="font-size: 0.75rem;" class="badge badge-available">
+                    3 Donors
+                  </span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem;">
+                  Active Demand: <strong>5 Units</strong>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- Recent Active Requests List -->
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h2 style="font-size: 1.15rem; font-weight: 700;">📋 Current Blood Requests</h2>
+          <button class="btn btn-secondary btn-sm" id="view-all-requests-btn">View All (27)</button>
+        </div>
+
+        
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #740</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9135343966</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-44...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">AB-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #289</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9195192950</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-80...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #988</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Fortis Medical Center</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9537750499</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-29...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #435</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9985841022</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-98...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #387</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Max Care Hospital</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9811919665</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-19...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">AB-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #534</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9618070066</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-65...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #853</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Fortis Medical Center</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9439759650</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-66...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #512</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Max Care Hospital</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9532500829</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-57...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #429</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9587320223</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-70...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #797</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9351838518</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-20...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #264</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9740455870</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-87...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #330</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9284104690</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-33...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #333</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo ICU</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9869947298</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-14...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #914</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9662661366</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-42...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #616</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Fortis Medical Center</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9205172899</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-66...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">AB-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #128</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Fortis Medical Center</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9997280265</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-68...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #786</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9851797226</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-25...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #436</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Max Care Hospital</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9497309745</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-45...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #528</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9835655461</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-38...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #765</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Max Care Hospital</strong> (Emergency Wing) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9454439383</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-83...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #132</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9881223186</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-83...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #113</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Max Care Hospital</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9203413097</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-20...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #536</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Fortis Medical Center</strong> (Emergency Wing) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9127270913</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-50...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Patient #484</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Emergency Ward</strong> (Emergency Wing) • <strong>1 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Attendant On-duty</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 9358215031</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-18...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">O-</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Sunita Reddy</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Apollo Multi-Specialty Hospital</strong> (Block C, Room 402) • <strong>3 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Dr. Ramesh Reddy</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 94400 11223</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-01...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #1E88E5;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">B+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Rohan Mehta</h3>
+                      <span class="badge badge-standard">STANDARD</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">ACTIVE</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>City Care Hospital</strong> (Emergency Trauma Ward) • <strong>2 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Kavita Mehta</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 91122 33445</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-02...')">Match Donors</button>
+                </div>
+              </div>
+            
+              <div class="glass-panel" style="padding: 1.25rem; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #E53935;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div class="blood-type-pill">A+</div>
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                      <h3 style="font-size: 1rem; font-weight: 700;">Amitabh Sen</h3>
+                      <span class="badge badge-emergency">EMERGENCY</span>
+                      <span class="badge badge-available" style="font-size: 0.7rem;">MATCHING</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+                      🏥 <strong>Fortis Health Center</strong> (ICU Bed 12) • <strong>4 Unit(s)</strong> Required
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Contact: Sanjay Sen</div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-color);">+91 93344 55667</div>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Initiating donor match for Request REQ-2026-03...')">Match Donors</button>
+                </div>
+              </div>
+            
+          </div>
+        
+      </div>
+    </div>
+  </main>
+      <footer id="mobile-nav-container">
+    <div class="mobile-bottom-nav">
+      <div class="mobile-nav-item active" data-tab="dashboard">
+        <span class="mobile-nav-icon">📊</span>
+        <span>Home</span>
+      </div>
+      <div class="mobile-nav-item " data-tab="donors">
+        <span class="mobile-nav-icon">❤️</span>
+        <span>Donors</span>
+      </div>
+      <div class="mobile-nav-item " data-tab="requests">
+        <span class="mobile-nav-icon">🚨</span>
+        <span>Requests</span>
+      </div>
+      <div class="mobile-nav-item " data-tab="matching">
+        <span class="mobile-nav-icon">🔍</span>
+        <span>Match</span>
+      </div>
+      <div class="mobile-nav-item " data-tab="tracking">
+        <span class="mobile-nav-icon">📍</span>
+        <span>Track</span>
+      </div>
+      <div class="mobile-nav-item " data-tab="hospital">
+        <span class="mobile-nav-icon">🏥</span>
+        <span>Hospital</span>
+      </div>
+      <div class="mobile-nav-item " data-tab="records">
+        <span class="mobile-nav-icon">📜</span>
+        <span>Stats</span>
+      </div>
+    </div>
+  </footer>
+      <div id="modal-container">
+    <div class="modal-overlay" id="donor-modal">
+      <div class="modal-card glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700;">❤️ Register New Blood Donor</h2>
+          <button class="btn btn-secondary btn-sm" id="close-donor-modal">✕</button>
+        </div>
+
+        <form id="donor-reg-form">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" id="donor-name" class="form-control" placeholder="e.g. Ramesh Kumar" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Blood Group *</label>
+              <select id="donor-blood-group" class="form-control" required="">
+                <option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="O+">O+</option><option value="O-">O-</option><option value="AB+">AB+</option><option value="AB-">AB-</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="form-group">
+              <label class="form-label">Age *</label>
+              <input type="number" id="donor-age" class="form-control" min="18" max="65" placeholder="18-65" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Gender *</label>
+              <select id="donor-gender" class="form-control" required="">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Donation Date</label>
+              <input type="date" id="donor-last-date" class="form-control">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" id="donor-phone" class="form-control" placeholder="+91 9876543210" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="donor-email" class="form-control" placeholder="donor@example.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Location / City Area *</label>
+            <input type="text" id="donor-location" class="form-control" placeholder="e.g. South Campus, City Hospital Zone" required="">
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+            <button type="button" class="btn btn-secondary" id="cancel-donor-modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Register Donor</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <div class="modal-overlay" id="request-modal">
+      <div class="modal-card glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700;">🚨 Submit Blood Request</h2>
+          <button class="btn btn-secondary btn-sm" id="close-req-modal">✕</button>
+        </div>
+
+        <form id="blood-req-form">
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Patient Full Name *</label>
+              <input type="text" id="req-patient-name" class="form-control" placeholder="e.g. Sunita Sharma" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Required Blood Group *</label>
+              <select id="req-blood-group" class="form-control" required="">
+                <option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="O+">O+</option><option value="O-">O-</option><option value="AB+">AB+</option><option value="AB-">AB-</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Units Needed *</label>
+              <input type="number" id="req-units" class="form-control" min="1" max="10" value="1" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Priority Level *</label>
+              <select id="req-priority" class="form-control" required="">
+                <option value="STANDARD">Standard Priority</option>
+                <option value="EMERGENCY">🚨 EMERGENCY PRIORITY</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Hospital Name *</label>
+            <input type="text" id="req-hospital" class="form-control" placeholder="e.g. Apollo Multi-Specialty Hospital" required="">
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Hospital Ward / Room Details *</label>
+              <input type="text" id="req-location" class="form-control" placeholder="e.g. ICU Bed 4, Block B" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Required Date &amp; Time *</label>
+              <input type="text" id="req-datetime" class="form-control" placeholder="e.g. Today 5:00 PM" required="">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Attendant / Contact Person *</label>
+              <input type="text" id="req-contact-name" class="form-control" placeholder="e.g. Dr. Ramesh / Relative" required="">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Contact Phone Number *</label>
+              <input type="tel" id="req-contact-phone" class="form-control" placeholder="+91 9440011223" required="">
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+            <button type="button" class="btn btn-secondary" id="cancel-req-modal">Cancel</button>
+            <button type="submit" class="btn btn-emergency">Post Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  <script type="module" src="./NSS Blood Connect Mobile - Emergency Blood Platform_files/app.js.download"></script>
+
+
+</body></html>
